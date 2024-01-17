@@ -1,0 +1,41 @@
+{
+  "name": "plaintes-web-apiserver",
+  "version": "1.0.0",
+  "description": "api-server",
+  "main": "index.js",
+  "scripts": {
+    "pretest:ci": "npm run lint",
+    "posttest": "npm run lint",
+    "lint": "eslint src/index.js",
+    "lint:fix": "eslint --fix src/index.js",
+    "test": "jest tests/routes.test.js",
+    "test:ci": "npm run test:coverage",
+    "test:unit": "echo 'NO unit tests'",
+    "test:coverage": "nyc --check-coverage npm run test",
+    "start": "node src/index.js",
+    "start:watch": "nodemon src/index.js"
+  },
+  "nyc": {
+    "all": true,
+    "include": [
+      "tests/**.js"
+    ],
+    "exclude": [],
+    "check-coverage": true
+  },
+  "author": "Alain Barbier",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-usecases": "3.1.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.3",
+    "nyc": "15.1.0",
+    "supertest": "^6.3.4"
+  },
+  "dependencies": {
+    "express": "4.18.2",
+    "morgan": "1.10.0",
+    "npm": "10.3.0"
+  }
+}
