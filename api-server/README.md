@@ -1,4 +1,4 @@
-# Plaintes-Web-apiserver Alain Barbier
+# Plaintes-Web-apiserver
 
 L'api du site web plaintes en ligne
 
@@ -8,7 +8,7 @@ npm start
 
 npm run start:watch  
 
-# pour démarrer les tests automatisés  
+## pour démarrer les tests automatisés  
 
 npm test  
 
