@@ -1,3 +1,9 @@
+/* Auteur du projet : Metroidzeta
+	Pour exécuter l'api serveur :
+		> npm start
+	Pour exécuter les tests :
+		> npm test
+*/
 const supertest = require('supertest')
 const {app, obtenirDataBDD, arreterServeur} = require('../src/index')
 
@@ -110,7 +116,7 @@ describe('API tests', () => {
         expect(404)
     })
 
-    it('Test PUT /structures/[nomStructure deja existant]', async() => {
+    it('Test PUT /structures/X [nomStructure deja existant]', async() => {
         const db = await obtenirDataBDD()
         const struct_id = db.structures.length - 1 // les IDs commencent à 0, on prend la dernière structure (taille - 1)
         await supertest(app)

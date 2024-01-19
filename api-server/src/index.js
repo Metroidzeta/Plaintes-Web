@@ -1,3 +1,9 @@
+/* Auteur du projet : Metroidzeta
+	Pour exécuter l'api serveur :
+		> npm start
+	Pour exécuter les tests :
+		> npm test
+*/
 'use strict'
 
 const express = require('express')
@@ -6,7 +12,7 @@ const fsp = require('fs/promises')
 
 const app = express()
 const port = 8081
-const cheminBDD = 'database.json'
+const cheminBDD = 'database/database.json'
 
 app.use(express.json())
 app.use(morgan('dev'))
@@ -106,7 +112,7 @@ app.post('/deposer-plainte', async(req, res) => {
                 contenu,
             })
             const structure = db.structures.find((s) => s.nom === nomStructure)
-            if (!structure) { // Si le nom de la structure n'existe pas dans la BDD
+            if (!structure) { // Si le nom de la structure n'existe pas déjà dans la BDD
                 db.structures.push({ // On ajoute la nouvelle structure à la BDD
                     id: db.structures.length,
                     nom: nomStructure,
